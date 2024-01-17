@@ -94,7 +94,7 @@
       <AssemblyReference>System.Private.Uri</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="546,1852" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="546,2049" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="CityName" />
     </Sequence.Variables>
@@ -109,15 +109,16 @@
       </ui:InputDialog.Result>
     </ui:InputDialog>
     <WriteLine DisplayName="Write City Name" sap:VirtualizedContainerService.HintSize="484,90" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[CityName]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" ContinueOnError="False" DisplayName="Use Browser Edge: Google" sap:VirtualizedContainerService.HintSize="484,1332" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="f6314c37-f246-429d-84ef-91f78cd0d93c" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" ContinueOnError="False" DisplayName="Use Browser Edge: Google" sap:VirtualizedContainerService.HintSize="484,1529" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="f6314c37-f246-429d-84ef-91f78cd0d93c" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,1115" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,1312" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="Temperature" />
+              <Variable x:TypeArguments="x:String" Name="Weather" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -135,8 +136,13 @@
                 <uix:TargetAnchorable BrowserURL="https://www.google.de/search?q=Weather+in+Wetzlar+in+Fahreneit&amp;sca_esv=599145432&amp;source=hp&amp;ei=UO-nZdP9Mcbjxc8P1raj8A4&amp;iflsig=ANes7DEAAAAAZaf9YN5sqla1SLj2LEjnBAyaGwVMO4Bz&amp;ved=0ahUKEwjT5avb2-SDAxXGcfEDHVbbCO4Q4dUDCA8&amp;uact=5&amp;oq=Weather+in+Wetzlar+in+Fahreneit&amp;gs_lp=Egdnd3Mtd2l6Ih9XZWF0aGVyIGluIFdldHpsYXIgaW4gRmFocmVuZWl0MgcQIRgKGKABMgcQIRgKGKABMgcQIRgKGKABMgcQIRgKGKABMgcQIRgKGKABSJEbUOcEWOQMcAF4AJABAZgB1gKgAdgPqgEHMC41LjIuMrgBA8gBAPgBAagCCsICEBAAGAMYjwEY5QIY6gIYjAPCAhAQLhgDGI8BGOUCGOoCGIwDwgILEAAYgAQYigUYkgPCAg4QABiABBixAxiDARiSA8ICCBAAGIAEGLEDwgIOEAAYgAQYsQMYgwEYyQPCAgsQABiABBixAxiDAcICERAuGIAEGLEDGIMBGMcBGNEDwgIIEC4YgAQYsQPCAgsQABiABBixAxjJA8ICCBAAGIAEGJIDwgIFEC4YgATCAgUQABiABMICEBAAGIAEGLEDGIMBGEYYgALCAgUQIRigAQ&amp;sclient=gws-wiz" CvTextArea="260, 400, 56, 38" CvType="AnyWordGroup" DesignTimeRectangle="262, 392, 54, 55" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'29'" FullSelectorArgument="&lt;webctrl id='wob_tm' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='wob_tm' tag='SPAN' type='' class='wob_t q8U8x' /&gt;" Guid="b267b8ed-febc-4457-a64f-013895f04144" InformativeScreenshot="06190e2ce37bb4cd0b8f9453898e4662.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Weather in Wetzlar in Fahreneit - Google Suche' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
               </uix:NGetText.Target>
             </uix:NGetText>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[Temperature]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[Temperature.GetType]" />
+            <ui:LogMessage DisplayName="Log Temperature" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[Temperature]" />
+            <uix:NGetText DisplayName="Get Text 'Schnee'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="f6314c37-f246-429d-84ef-91f78cd0d93c" TextString="[Weather]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.google.de/search?q=Weather+in+Herborn+in+Fahreneit&amp;sca_esv=599157406&amp;source=hp&amp;ei=FvanZbvED5GSxc8PkIqzkAM&amp;iflsig=ANes7DEAAAAAZagEJpwH_yzBld1LGQNHZCzBGaKjRrJJ&amp;ved=0ahUKEwi7p_SV4uSDAxURSfEDHRDFDDIQ4dUDCA8&amp;uact=5&amp;oq=Weather+in+Herborn+in+Fahreneit&amp;gs_lp=Egdnd3Mtd2l6Ih9XZWF0aGVyIGluIEhlcmJvcm4gaW4gRmFocmVuZWl0MgcQIRgKGKABSOcYUL8FWMwKcAF4AJABAZgB4wGgAaYGqgEFMC4zLjG4AQPIAQD4AQGoAgrCAh0QABiABBiKBRjlAhjlAhjqAhi0AhiKAxi3AxjUA8ICGhAAGIAEGIoFGOUCGOUCGOoCGLQCGIoDGLcDwgIQEAAYAxiPARjlAhjqAhiMA8ICBRAhGKAB4gMFEgExIEA&amp;sclient=gws-wiz" CvTextArea="789, 440, 55, 15" CvType="AnyWordGroup" DesignTimeRectangle="791, 439, 53, 18" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Schnee'" FullSelectorArgument="&lt;webctrl id='wob_dc' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='wob_dc' tag='SPAN' type='' class='' /&gt;" Guid="3e986fea-cc76-4bef-aa56-f7932d829967" InformativeScreenshot="fe7aa15b45cc55e816becd5a019d01de.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Weather in Herborn in Fahreneit - Google Suche' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <ui:LogMessage DisplayName="Log Weather" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[Weather]" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
