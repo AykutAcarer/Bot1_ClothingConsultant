@@ -33,6 +33,7 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -93,7 +94,7 @@
       <AssemblyReference>System.Private.Uri</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="546,1289" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="546,1852" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="CityName" />
     </Sequence.Variables>
@@ -108,13 +109,16 @@
       </ui:InputDialog.Result>
     </ui:InputDialog>
     <WriteLine DisplayName="Write City Name" sap:VirtualizedContainerService.HintSize="484,90" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[CityName]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" ContinueOnError="False" DisplayName="Use Browser Edge: Google" sap:VirtualizedContainerService.HintSize="484,769" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="f6314c37-f246-429d-84ef-91f78cd0d93c" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" ContinueOnError="False" DisplayName="Use Browser Edge: Google" sap:VirtualizedContainerService.HintSize="484,1332" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="f6314c37-f246-429d-84ef-91f78cd0d93c" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,552" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,1115" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="Temperature" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -125,7 +129,14 @@
                 <uix:TargetAnchorable BrowserURL="https://www.google.de/" DesignTimeRectangle="420, 270, 443, 27" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'TEXTAREA APjFqb'" FullSelectorArgument="&lt;webctrl id='APjFqb' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='APjFqb' tag='TEXTAREA' type='search' class='gLFyf' aaname='Suche' /&gt;" Guid="9ac1419a-6b47-4830-9f49-838f169ce5ca" InformativeScreenshot="fe03666599198dac1a66934f2fb069bc.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Google' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive" />
               </uix:NTypeInto.Target>
             </uix:NTypeInto>
-            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="388,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InteractionMode="DebuggerApi" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3" />
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Enter Shortcuts to perform Search" sap:VirtualizedContainerService.HintSize="388,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InteractionMode="DebuggerApi" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3" />
+            <uix:NGetText DisplayName="Get Text '29'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="f6314c37-f246-429d-84ef-91f78cd0d93c" TextString="[Temperature]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.google.de/search?q=Weather+in+Wetzlar+in+Fahreneit&amp;sca_esv=599145432&amp;source=hp&amp;ei=UO-nZdP9Mcbjxc8P1raj8A4&amp;iflsig=ANes7DEAAAAAZaf9YN5sqla1SLj2LEjnBAyaGwVMO4Bz&amp;ved=0ahUKEwjT5avb2-SDAxXGcfEDHVbbCO4Q4dUDCA8&amp;uact=5&amp;oq=Weather+in+Wetzlar+in+Fahreneit&amp;gs_lp=Egdnd3Mtd2l6Ih9XZWF0aGVyIGluIFdldHpsYXIgaW4gRmFocmVuZWl0MgcQIRgKGKABMgcQIRgKGKABMgcQIRgKGKABMgcQIRgKGKABMgcQIRgKGKABSJEbUOcEWOQMcAF4AJABAZgB1gKgAdgPqgEHMC41LjIuMrgBA8gBAPgBAagCCsICEBAAGAMYjwEY5QIY6gIYjAPCAhAQLhgDGI8BGOUCGOoCGIwDwgILEAAYgAQYigUYkgPCAg4QABiABBixAxiDARiSA8ICCBAAGIAEGLEDwgIOEAAYgAQYsQMYgwEYyQPCAgsQABiABBixAxiDAcICERAuGIAEGLEDGIMBGMcBGNEDwgIIEC4YgAQYsQPCAgsQABiABBixAxjJA8ICCBAAGIAEGJIDwgIFEC4YgATCAgUQABiABMICEBAAGIAEGLEDGIMBGEYYgALCAgUQIRigAQ&amp;sclient=gws-wiz" CvTextArea="260, 400, 56, 38" CvType="AnyWordGroup" DesignTimeRectangle="262, 392, 54, 55" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'29'" FullSelectorArgument="&lt;webctrl id='wob_tm' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='wob_tm' tag='SPAN' type='' class='wob_t q8U8x' /&gt;" Guid="b267b8ed-febc-4457-a64f-013895f04144" InformativeScreenshot="06190e2ce37bb4cd0b8f9453898e4662.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Weather in Wetzlar in Fahreneit - Google Suche' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[Temperature]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[Temperature.GetType]" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
